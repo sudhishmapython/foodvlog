@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>AM CART</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body id="top">
+
+<div class="w3-container">
+
+  <div class="w3-dropdown-hover">
+    <button class="w3-button w3-black">CHOOSE ME</button>
+    <div class="w3-dropdown-content w3-bar-block w3-border">
+     <a href="/">All</a><br>
+{% for j in ct %}
+      <a href="{{j.get_url}}">{{j.name}}</a><br>
+{% endfor %}
+    </div>
+  </div>
+</div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div id="pageintro" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <article>
+<!--      <img src="{% static 'images/background.jpg' %}" alt="Image of Bannner">-->
+      <h3 class="heading">GOOD QUALITY FOODS</h3>
+
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+
+
+<!-- <div class="category">-->
+<!--  {% for j in ct %}-->
+<!--  <b style="color:red">-->
+<!--      <a href="{{j.get_url}}">{{j.name}}</a><br>-->
+<!--&lt;!&ndash;      {{j.get_url}}<br>&ndash;&gt;-->
+<!--  </b>-->
+<!--  {% endfor %}-->
+<!--</div>-->
+<!-- End Top Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+
+
+    <section id="introblocks">
+
+      <ul class="nospace group btmspace-80">
+        {% for i in pg.object_list %}
+        <li class="one_third">
+          <figure style="height:300px;"><a class="imgover" href="{{i.get_url}}"><img src="{{i.img.url}}" alt=""></a>
+            <figcaption>
+            <h6 class="heading">{{i.name}}</h6>
+           <p>Rs.{{i.price}}</p>
+<!--              <p>{{i.desc|truncatewords:39}}</p>-->
+
+<!--              <p>Stock left: {{i.stock}}</p>-->
+            </figcaption>
+          </figure>
+
+        {% endfor %}
+      </ul>
+
+  </main>
+
+  <center>
+
+    {% for p in pg.paginator.page_range %}
+
+    <a href="?page={{p}}" class="btn btn-light btn-sm {% if pg.number == p %} active {% endif %}">{{p}}</a>
+
+    {% endfor %}
+
+
+  </center>
+
+
+</div>
+
+    </section>
+
+
+
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="bgded overlay row4" style="background-image:url('images/demo/backgrounds/05.png');">
+  <footer id="footer" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="center btmspace-50">
+      <h6 class="heading">Sislaf</h6>
+      <ul class="faico clear">
+        <li><a class="faicon-dribble" href="#"><i class="fab fa-dribbble"></i></a></li>
+        <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+        <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+        <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+        <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
+      </ul>
+      <p class="nospace">Pellentesque ante integer mollis risus vitae condimentum vulputate elit.</p>
+    </div>
+    <!-- ################################################################################################ -->
+
+    <!-- ################################################################################################ -->
+  </footer>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="layout/scripts/jquery.min.js"></script>
+<script src="layout/scripts/jquery.backtotop.js"></script>
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>AM CART</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body id="top">
+
+
+<section id="introblocks">
+      <ul class="nospace group btmspace-80">
+        {% for k in prs %}
+        <li class="one_third">
+          <figure style="height:300px; margin-top:80px;"><a class="imgover" href="{{k.get_url}}"><img src="{{k.img.url}}" alt=""></a>
+            <figcaption>
+            <h6 class="heading">{{k.name}}</h6>
+           <p>Rs.{{k.price}}</p>
+              <p>{{k.desc|truncatewords:39}}</p>
+
+              <p>Stock left: {{k.stock}}</p>
+            </figcaption>
+          </figure>
+        </li>
+        {% endfor %}
+      </ul>
+</section>
+
+</body>
+</html>
+{% endblock %}
